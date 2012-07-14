@@ -1,0 +1,295 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		283659B715B17D1900ECD392 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283659B615B17D1900ECD392 /* UIKit.framework */; };
+		283659B915B17D1900ECD392 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283659B815B17D1900ECD392 /* Foundation.framework */; };
+		283659BB15B17D1900ECD392 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283659BA15B17D1900ECD392 /* CoreGraphics.framework */; };
+		283659C115B17D1900ECD392 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 283659BF15B17D1900ECD392 /* InfoPlist.strings */; };
+		283659C315B17D1900ECD392 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659C215B17D1900ECD392 /* main.m */; };
+		283659C715B17D1900ECD392 /* NKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659C615B17D1900ECD392 /* NKAppDelegate.m */; };
+		283659CA15B17D1900ECD392 /* NKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659C915B17D1900ECD392 /* NKViewController.m */; };
+		283659CD15B17D1900ECD392 /* NKViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283659CB15B17D1900ECD392 /* NKViewController_iPhone.xib */; };
+		283659D015B17D1900ECD392 /* NKViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283659CE15B17D1900ECD392 /* NKViewController_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		283659B215B17D1900ECD392 /* NKToggleOverlayButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NKToggleOverlayButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		283659B615B17D1900ECD392 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		283659B815B17D1900ECD392 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		283659BA15B17D1900ECD392 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		283659BE15B17D1900ECD392 /* NKToggleOverlayButton-Info.plist */ = {isa = PBXFileReference; path = "NKToggleOverlayButton-Info.plist"; sourceTree = "<group>"; };
+		283659C015B17D1900ECD392 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		283659C215B17D1900ECD392 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		283659C415B17D1900ECD392 /* NKToggleOverlayButton-Prefix.pch */ = {isa = PBXFileReference; path = "NKToggleOverlayButton-Prefix.pch"; sourceTree = "<group>"; };
+		283659C515B17D1900ECD392 /* NKAppDelegate.h */ = {isa = PBXFileReference; path = NKAppDelegate.h; sourceTree = "<group>"; };
+		283659C615B17D1900ECD392 /* NKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NKAppDelegate.m; sourceTree = "<group>"; };
+		283659C815B17D1900ECD392 /* NKViewController.h */ = {isa = PBXFileReference; path = NKViewController.h; sourceTree = "<group>"; };
+		283659C915B17D1900ECD392 /* NKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NKViewController.m; sourceTree = "<group>"; };
+		283659CC15B17D1900ECD392 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NKViewController_iPhone.xib; sourceTree = "<group>"; };
+		283659CF15B17D1900ECD392 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NKViewController_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		283659AF15B17D1900ECD392 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283659B715B17D1900ECD392 /* UIKit.framework in Frameworks */,
+				283659B915B17D1900ECD392 /* Foundation.framework in Frameworks */,
+				283659BB15B17D1900ECD392 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		283659A715B17D1900ECD392 = {
+			isa = PBXGroup;
+			children = (
+				283659BC15B17D1900ECD392 /* NKToggleOverlayButton */,
+				283659B515B17D1900ECD392 /* Frameworks */,
+				283659B315B17D1900ECD392 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		283659B315B17D1900ECD392 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				283659B215B17D1900ECD392 /* NKToggleOverlayButton.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		283659B515B17D1900ECD392 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				283659B615B17D1900ECD392 /* UIKit.framework */,
+				283659B815B17D1900ECD392 /* Foundation.framework */,
+				283659BA15B17D1900ECD392 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		283659BC15B17D1900ECD392 /* NKToggleOverlayButton */ = {
+			isa = PBXGroup;
+			children = (
+				283659C515B17D1900ECD392 /* NKAppDelegate.h */,
+				283659C615B17D1900ECD392 /* NKAppDelegate.m */,
+				283659C815B17D1900ECD392 /* NKViewController.h */,
+				283659C915B17D1900ECD392 /* NKViewController.m */,
+				283659CB15B17D1900ECD392 /* NKViewController_iPhone.xib */,
+				283659CE15B17D1900ECD392 /* NKViewController_iPad.xib */,
+				283659BD15B17D1900ECD392 /* Supporting Files */,
+			);
+			path = NKToggleOverlayButton;
+			sourceTree = "<group>";
+		};
+		283659BD15B17D1900ECD392 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				283659BE15B17D1900ECD392 /* NKToggleOverlayButton-Info.plist */,
+				283659BF15B17D1900ECD392 /* InfoPlist.strings */,
+				283659C215B17D1900ECD392 /* main.m */,
+				283659C415B17D1900ECD392 /* NKToggleOverlayButton-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		283659B115B17D1900ECD392 /* NKToggleOverlayButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 283659D315B17D1900ECD392 /* Build configuration list for PBXNativeTarget "NKToggleOverlayButton" */;
+			buildPhases = (
+				283659AE15B17D1900ECD392 /* Sources */,
+				283659AF15B17D1900ECD392 /* Frameworks */,
+				283659B015B17D1900ECD392 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NKToggleOverlayButton;
+			productName = NKToggleOverlayButton;
+			productReference = 283659B215B17D1900ECD392 /* NKToggleOverlayButton.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		283659A915B17D1900ECD392 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NK;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Artfinder;
+			};
+			buildConfigurationList = 283659AC15B17D1900ECD392 /* Build configuration list for PBXProject "NKToggleOverlayButton" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 283659A715B17D1900ECD392;
+			productRefGroup = 283659B315B17D1900ECD392 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				283659B115B17D1900ECD392 /* NKToggleOverlayButton */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		283659B015B17D1900ECD392 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283659C115B17D1900ECD392 /* InfoPlist.strings in Resources */,
+				283659CD15B17D1900ECD392 /* NKViewController_iPhone.xib in Resources */,
+				283659D015B17D1900ECD392 /* NKViewController_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		283659AE15B17D1900ECD392 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				283659C315B17D1900ECD392 /* main.m in Sources */,
+				283659C715B17D1900ECD392 /* NKAppDelegate.m in Sources */,
+				283659CA15B17D1900ECD392 /* NKViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		283659BF15B17D1900ECD392 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				283659C015B17D1900ECD392 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		283659CB15B17D1900ECD392 /* NKViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				283659CC15B17D1900ECD392 /* en */,
+			);
+			name = NKViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		283659CE15B17D1900ECD392 /* NKViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				283659CF15B17D1900ECD392 /* en */,
+			);
+			name = NKViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		283659D115B17D1900ECD392 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		283659D215B17D1900ECD392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		283659D415B17D1900ECD392 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NKToggleOverlayButton/NKToggleOverlayButton-Prefix.pch";
+				INFOPLIST_FILE = "NKToggleOverlayButton/NKToggleOverlayButton-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		283659D515B17D1900ECD392 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NKToggleOverlayButton/NKToggleOverlayButton-Prefix.pch";
+				INFOPLIST_FILE = "NKToggleOverlayButton/NKToggleOverlayButton-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		283659AC15B17D1900ECD392 /* Build configuration list for PBXProject "NKToggleOverlayButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				283659D115B17D1900ECD392 /* Debug */,
+				283659D215B17D1900ECD392 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		283659D315B17D1900ECD392 /* Build configuration list for PBXNativeTarget "NKToggleOverlayButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				283659D415B17D1900ECD392 /* Debug */,
+				283659D515B17D1900ECD392 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 283659A915B17D1900ECD392 /* Project object */;
+}
