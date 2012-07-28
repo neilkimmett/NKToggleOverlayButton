@@ -36,7 +36,7 @@
     [descriptionLabel release];
 
     NKToggleOverlayButton *button = [[NKToggleOverlayButton alloc] init];
-    button.frame = CGRectMake(0, 150, 320, 100);
+    button.frame = CGRectMake(0, 250, 320, 100);
     [button setOnImage:[UIImage imageNamed:@"on"] forState:UIControlStateNormal];
     [button setOnImage:[UIImage imageNamed:@"on-press"] forState:UIControlStateHighlighted];
     [button setOffImage:[UIImage imageNamed:@"off"] forState:UIControlStateNormal];
