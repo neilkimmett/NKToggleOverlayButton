@@ -31,7 +31,7 @@
     descriptionLabel.numberOfLines = 0;
     descriptionLabel.font = [UIFont systemFontOfSize:14];
     descriptionLabel.textColor = [UIColor darkGrayColor];
-    descriptionLabel.text = @"A two state button that displays a translucent overlay when it's state is changed. The overlay contains customisable line of text and an image.";
+    descriptionLabel.text = @"A two state button that displays a translucent overlay when it's state is changed. The overlay contains a customisable line of text and an image.";
     [self.view addSubview:descriptionLabel];
     [descriptionLabel release];
 
