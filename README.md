@@ -1,4 +1,4 @@
-![Mid-animation screenshot of button being toggled on](screenshot-on.jpg "Button toggled on") ![Mid-animation screenshot of button being toggled off](screenshot-off.jpg "Button toggled off")
+![Mid-animation screenshot of button being toggled on](https://github.com/neilkimmett/NKToggleOverlayButton/blob/master/screenshot-on.png "Button toggled on") ![Mid-animation screenshot of button being toggled off](https://github.com/neilkimmett/NKToggleOverlayButton/blob/master/screenshot-off.png "Button toggled off")
 
 
 ## What is NKToggleOverlayButton?
