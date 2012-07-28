@@ -1,6 +1,3 @@
-# NKToggleOverlayButton
-
-
 ## What is NKToggleOverlayButton?
 
 NKToggleOverlayButton is a two state button that displays a translucent overlay when it's state is changed. The overlay contains a customisable line of text and an image.
@@ -45,7 +42,7 @@ button.toggleOffBlock = ^(NKToggleOverlayButton *button) {
 
 ## Contact
 
-Find me on Twitter @neilkimmmett[@neilkimmett](http://www.twitter.com/neilkimmett), or drop me an email at neil dot kimmett at gmail.com
+Find me on Twitter [@neilkimmett](http://www.twitter.com/neilkimmett), or drop me an email at neil dot kimmett at gmail.com
 
 ## License
 
