@@ -23,7 +23,7 @@ Pull requests encouraged :)
 ## How to use
 
 N.B. Not currently ARC-compatible, so if you're using ARC add the `-fno-objc-arc` compiler flag to all the files from this project
-(my reasoning for this stems from [Jiva DeVoe's excellent blog article on the matter](http://blog.random-ideas.net/?p=169)
+(my reasoning for this stems from [Jiva DeVoe's excellent blog article on the matter](http://blog.random-ideas.net/?p=169))
 
 ``` objective-c
 
