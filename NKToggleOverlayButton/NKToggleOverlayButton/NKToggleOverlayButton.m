@@ -82,6 +82,7 @@ toggleOffBlock = _toggleOffBlock;
         // Add a gesture recognizer, so we behave like a button
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(toggle:)];
+        tap.cancelsTouchesInView = NO;
         [self addGestureRecognizer:tap];
         [tap release];
         
