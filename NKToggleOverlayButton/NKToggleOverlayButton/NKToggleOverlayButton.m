@@ -190,7 +190,9 @@ toggleOffBlock = _toggleOffBlock;
 #pragma mark -
 #pragma mark Animation
 - (void)animateOverlayView
-{    
+{
+    if (!self.showOverlay) return;
+    
     self.userInteractionEnabled = NO;
     
     CGFloat overlaySize = 100;
