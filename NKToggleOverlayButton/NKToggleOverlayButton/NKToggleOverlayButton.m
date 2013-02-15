@@ -184,6 +184,11 @@ toggleOffBlock = _toggleOffBlock;
     if (actionBlock)
         actionBlock(self);
     
+    if ([self.delegate respondsToSelector:@selector(toggleButtonDidToggle:)])
+    {
+        [self.delegate toggleButtonDidToggle:self];
+    }
+    
     [self animateOverlayView];
 }
 

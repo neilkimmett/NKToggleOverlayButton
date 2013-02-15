@@ -32,6 +32,8 @@
 
 #if NS_BLOCKS_AVAILABLE
 
+@protocol NKToggleOverlayButtonDelegate;
+
 @class NKToggleOverlayButton;
 
 typedef void (^NKToggleActionBlock)(NKToggleOverlayButton *button);
@@ -72,6 +74,15 @@ typedef void (^NKToggleActionBlock)(NKToggleOverlayButton *button);
 @property (nonatomic, copy) NKToggleActionBlock toggleOnBlock;
 @property (nonatomic, copy) NKToggleActionBlock toggleOffBlock;
 
+// Delegate for if you want to kick it old school
+@property (nonatomic, assign) id<NKToggleOverlayButtonDelegate> delegate;
+
+@end
+
+
+@protocol NKToggleOverlayButtonDelegate <NSObject>
+@optional
+- (void)toggleButtonDidToggle:(NKToggleOverlayButton *)button;
 @end
 
 #endif
