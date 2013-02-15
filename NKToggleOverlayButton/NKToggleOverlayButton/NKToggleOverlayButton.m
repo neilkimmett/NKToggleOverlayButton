@@ -190,13 +190,13 @@ toggleOffBlock = _toggleOffBlock;
 #pragma mark -
 #pragma mark Animation
 - (void)animateOverlayView
-{
+{    
     self.userInteractionEnabled = NO;
     
     CGFloat overlaySize = 100;
-    CGRect overlayFrame = CGRectMake((self.window.bounds.size.width-overlaySize)/2.0,
-                                     (self.window.bounds.size.height-overlaySize)/2.0, 
-                                     overlaySize, overlaySize);
+    CGFloat overlayXOrigin = floorf((self.window.bounds.size.width-overlaySize)/2.0);
+    CGFloat overlayYOrigin = floorf((self.window.bounds.size.width-overlaySize)/2.0);
+    CGRect overlayFrame = CGRectMake(overlayXOrigin,overlayYOrigin, overlaySize, overlaySize);
     
     UIView *overlayView = [[UIView alloc] initWithFrame:overlayFrame];
     overlayView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
@@ -213,8 +213,8 @@ toggleOffBlock = _toggleOffBlock;
     [overlayView addSubview:imageView];
     [imageView release];
         
-    
-    CGRect labelFrame = CGRectMake(0, overlaySize-overlaySize/5.0, overlaySize, 15);    
+    CGFloat labelYOrigin = floorf(overlaySize-overlaySize/5.0);
+    CGRect labelFrame = CGRectMake(0, labelYOrigin, overlaySize, 15);
     UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
     label.font = [UIFont boldSystemFontOfSize:14];
     label.textColor = [UIColor whiteColor];
