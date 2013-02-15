@@ -47,6 +47,9 @@ typedef void (^NKToggleActionBlock)(NKToggleOverlayButton *button);
 - (void)setOnImage:(UIImage *)image forState:(UIControlState)state;
 - (void)setOffImage:(UIImage *)image forState:(UIControlState)state;
 
+// Title label
+@property (nonatomic, retain) UILabel *titleLabel;
+
 // Used to turn the overlay animation on or off (default on)
 @property (nonatomic, assign) BOOL showOverlay;
 

@@ -49,6 +49,7 @@
 
 @synthesize
 isOn = _isOn,
+titleLabel = _titleLabel,
 showOverlay = _showOverlay,
 overlayOnText = _overlayOnText,
 overlayOffText = _overlayOffText,
@@ -67,6 +68,7 @@ toggleOffBlock = _toggleOffBlock;
     [_overlayOffImage release];
     [_overlayOnText release];
     [_overlayOffText release];
+    [_titleLabel release];
     [_button release];
     [super dealloc];
 }
@@ -94,6 +96,13 @@ toggleOffBlock = _toggleOffBlock;
         _overlayOnImage = [[UIImage imageNamed:@"tick"] retain];
         _overlayOffImage = [[UIImage imageNamed:@"cross"] retain];
         
+        self.accessibilityTraits = UIAccessibilityTraitButton;
+        
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.textAlignment = UITextAlignmentCenter;
+
+        [self addSubview:_titleLabel];
     }
     return self;
 }
@@ -109,6 +118,12 @@ toggleOffBlock = _toggleOffBlock;
     }
     _button.frame = self.bounds;
     _button.backgroundColor = self.backgroundColor;
+    self.titleLabel.frame = self.bounds;
+    [self bringSubviewToFront:self.titleLabel];
+    
+    _button.accessibilityLabel = self.accessibilityLabel;
+    _button.accessibilityHint = self.accessibilityHint;
+    _button.accessibilityTraits = self.accessibilityTraits;
 }
 
 #pragma mark -
@@ -118,7 +133,7 @@ toggleOffBlock = _toggleOffBlock;
 {
     if (self.isOn)
     {
-        [_button setImage:image forState:state];
+        [_button setBackgroundImage:image forState:state];
     }
     [_onImagesForStates setObject:image forKey:[NSNumber numberWithInt:state]];
 }
@@ -127,7 +142,7 @@ toggleOffBlock = _toggleOffBlock;
 {
     if (!self.isOn)
     {
-        [_button setImage:image forState:state];
+        [_button setBackgroundImage:image forState:state];
     }
     [_offImagesForStates setObject:image forKey:[NSNumber numberWithInt:state]];
 }
@@ -139,7 +154,7 @@ toggleOffBlock = _toggleOffBlock;
     [states enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, UIImage *image, BOOL *stop)
      {
          UIControlState state = [key intValue];
-         [_button setImage:image forState:state];
+         [_button setBackgroundImage:image forState:state];
      }];
     
 }
@@ -154,7 +169,17 @@ toggleOffBlock = _toggleOffBlock;
     
     [self assignButtonImagesForStates];
     
-    NKToggleActionBlock actionBlock = self.isOn ? self.toggleOnBlock : self.toggleOffBlock;
+    NKToggleActionBlock actionBlock;
+    if (self.isOn)
+    {
+        actionBlock = self.toggleOnBlock;
+        self.accessibilityTraits = UIAccessibilityTraitButton | UIAccessibilityTraitSelected;
+    }
+    else
+    {
+        actionBlock = self.toggleOffBlock;
+        self.accessibilityTraits = UIAccessibilityTraitButton;
+    }
     
     if (actionBlock)
         actionBlock(self);
