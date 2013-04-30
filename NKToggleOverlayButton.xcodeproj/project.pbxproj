@@ -15,6 +15,7 @@
 		283659C715B17D1900ECD392 /* NKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659C615B17D1900ECD392 /* NKAppDelegate.m */; };
 		283659CA15B17D1900ECD392 /* NKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659C915B17D1900ECD392 /* NKViewController.m */; };
 		283659D915B17D5700ECD392 /* NKToggleOverlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659D815B17D5700ECD392 /* NKToggleOverlayButton.m */; };
+		285743C117300D430028CD75 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 285743C017300D430028CD75 /* Default-568h@2x.png */; };
 		2871582615C4376B00A1477D /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871582215C4376B00A1477D /* cross.png */; };
 		2871582715C4376B00A1477D /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871582315C4376B00A1477D /* cross@2x.png */; };
 		2871582815C4376B00A1477D /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871582415C4376B00A1477D /* tick.png */; };
@@ -44,6 +45,7 @@
 		283659C915B17D1900ECD392 /* NKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NKViewController.m; sourceTree = "<group>"; };
 		283659D715B17D5700ECD392 /* NKToggleOverlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKToggleOverlayButton.h; sourceTree = "<group>"; };
 		283659D815B17D5700ECD392 /* NKToggleOverlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKToggleOverlayButton.m; sourceTree = "<group>"; };
+		285743C017300D430028CD75 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2871582215C4376B00A1477D /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = Images/cross.png; sourceTree = "<group>"; };
 		2871582315C4376B00A1477D /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cross@2x.png"; path = "Images/cross@2x.png"; sourceTree = "<group>"; };
 		2871582415C4376B00A1477D /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tick.png; path = Images/tick.png; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		2871582A15C4377600A1477D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				285743C017300D430028CD75 /* Default-568h@2x.png */,
 				2871582B15C4378000A1477D /* off-press.png */,
 				2871582C15C4378000A1477D /* off-press@2x.png */,
 				2871582D15C4378000A1477D /* off.png */,
@@ -227,6 +230,7 @@
 				2871583815C4378000A1477D /* on-press@2x.png in Resources */,
 				2871583915C4378000A1477D /* on.png in Resources */,
 				2871583A15C4378000A1477D /* on@2x.png in Resources */,
+				285743C117300D430028CD75 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +267,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Neil Kimmett (6L6DTSJ7SJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Neil Kimmett (6L6DTSJ7SJ)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -278,6 +283,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "0318071A-CB27-418C-918F-C7E5FAF59C71";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0318071A-CB27-418C-918F-C7E5FAF59C71";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -288,7 +295,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nic Jackson (FC4EMSY8C8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Neil Kimmett (6L6DTSJ7SJ)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -297,6 +305,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "729CF02A-D819-4FE1-B38A-D89EDB0CB033";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0318071A-CB27-418C-918F-C7E5FAF59C71";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

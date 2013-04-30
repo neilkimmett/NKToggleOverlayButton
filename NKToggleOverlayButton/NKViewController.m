@@ -63,9 +63,13 @@
     [self.view addSubview:descriptionLabel];
     [descriptionLabel release];
 
+    UIImage *onImage = [UIImage imageNamed:@"on"];
+    
     NKToggleOverlayButton *button = [[NKToggleOverlayButton alloc] init];
-    button.frame = CGRectMake(0, 250, 320, 100);
-    [button setOnImage:[UIImage imageNamed:@"on"] forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 250, onImage.size.width, onImage.size.height);
+    button.center = self.view.center;
+    button.contentMode = UIViewContentModeScaleAspectFit;
+    [button setOnImage:onImage forState:UIControlStateNormal];
     [button setOnImage:[UIImage imageNamed:@"on-press"] forState:UIControlStateHighlighted];
     [button setOffImage:[UIImage imageNamed:@"off"] forState:UIControlStateNormal];
     [button setOffImage:[UIImage imageNamed:@"off-press"] forState:UIControlStateHighlighted];    
