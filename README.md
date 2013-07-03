@@ -17,6 +17,16 @@ Pull requests encouraged :)
 
 ## Installation
 
+#### Using [CocoaPods](http://cocoapods.org/) (preferred method)
+* Add `pod 'NKToggleOverlayButton', '~> 1.0.0'` to your `Podfile`
+
+* Run
+``` bash
+$ pod install
+```
+to add the required files to your workspace.
+
+#### Manually
 * Drag the `NKToggleOverlayButton` folder into your project
 * `#import "NKToggleOverlayButton.h"`
 
