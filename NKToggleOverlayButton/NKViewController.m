@@ -1,7 +1,7 @@
 /*
  This file is part of NKToggleOverlayButton.
  
- Copyright (c) 2012, Neil Kimmett
+ Copyright (c) 2014, Neil Kimmett
  All rights reserved.
  
  Permission is hereby granted, free of charge, to any person
@@ -30,7 +30,7 @@
  *
  */
 
-
+#import <QuartzCore/QuartzCore.h>
 #import "NKViewController.h"
 #import "NKToggleOverlayButton.h"
 
@@ -46,45 +46,90 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 300, 30)];
+    UIColor *redColor = [UIColor colorWithRed:0.7f green:0.0f blue:0.0f alpha:1.0f];
+
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 300, 30)];
     titleLabel.text = @"NKToggleOverlayButton";
-    titleLabel.textColor = [UIColor colorWithRed:0.6 green:0.0 blue:0.0 alpha:1.0];
+    titleLabel.textColor = redColor;
     titleLabel.font = [UIFont boldSystemFontOfSize:20];
-    titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    titleLabel.shadowColor = [UIColor lightGrayColor];
     [self.view addSubview:titleLabel];
-    [titleLabel release];
     
-    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 60, 280, 80)];
+    UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(titleLabel.frame), 280, 80)];
     descriptionLabel.numberOfLines = 0;
     descriptionLabel.font = [UIFont systemFontOfSize:14];
     descriptionLabel.textColor = [UIColor darkGrayColor];
     descriptionLabel.text = @"A two state button that displays a translucent overlay when it's state is changed. The overlay contains a customisable line of text and an image.";
     [self.view addSubview:descriptionLabel];
-    [descriptionLabel release];
+    
+    UILabel *button1Label = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(descriptionLabel.frame), 280, 30)];
+    button1Label.numberOfLines = 0;
+    button1Label.font = [UIFont systemFontOfSize:12];
+    button1Label.textColor = [UIColor darkGrayColor];
+    button1Label.text = @"I'm a button who uses images.";
+    [self.view addSubview:button1Label];
 
     UIImage *onImage = [UIImage imageNamed:@"on"];
-    
-    NKToggleOverlayButton *button = [[NKToggleOverlayButton alloc] init];
-    button.frame = CGRectMake(0, 250, onImage.size.width, onImage.size.height);
-    button.center = self.view.center;
-    button.contentMode = UIViewContentModeScaleAspectFit;
-    [button setOnImage:onImage forState:UIControlStateNormal];
-    [button setOnImage:[UIImage imageNamed:@"on-press"] forState:UIControlStateHighlighted];
-    [button setOffImage:[UIImage imageNamed:@"off"] forState:UIControlStateNormal];
-    [button setOffImage:[UIImage imageNamed:@"off-press"] forState:UIControlStateHighlighted];    
-    button.overlayOnText = @"Saved";
-    button.overlayOffText = @"Removed";
-    button.toggleOnBlock = ^(NKToggleOverlayButton *button) {
+    NKToggleOverlayButton *button1 = [[NKToggleOverlayButton alloc] init];
+    button1.frame = CGRectMake(20, CGRectGetMaxY(button1Label.frame) + 10, onImage.size.width, onImage.size.height);
+    button1.contentMode = UIViewContentModeScaleAspectFit;
+    [button1 setOnImage:onImage forState:UIControlStateNormal];
+    [button1 setOnImage:[UIImage imageNamed:@"on-press"] forState:UIControlStateHighlighted];
+    [button1 setOffImage:[UIImage imageNamed:@"off"] forState:UIControlStateNormal];
+    [button1 setOffImage:[UIImage imageNamed:@"off-press"] forState:UIControlStateHighlighted];    
+    button1.overlayOnText = @"Saved";
+    button1.overlayOffText = @"Removed";
+    button1.toggleOnBlock = ^(NKToggleOverlayButton *button) {
         NSLog(@"Saved");
     };
-    button.toggleOffBlock = ^(NKToggleOverlayButton *button) {
+    button1.toggleOffBlock = ^(NKToggleOverlayButton *button) {
         NSLog(@"Removed");
     };
+    [button1 addTarget:self action:@selector(didToggleButton1:) forControlEvents:UIControlEventValueChanged];
     
-    [self.view addSubview:button];
-    [button release];
+    [self.view addSubview:button1];
+    
+    UILabel *button2Label = [[UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(button1.frame) + 20, 280, 40)];
+    button2Label.numberOfLines = 0;
+    button2Label.font = [UIFont systemFontOfSize:12];
+    button2Label.textColor = [UIColor darkGrayColor];
+    button2Label.text = @"I'm a button who uses titleLabel and backgroundColor to draw themselves.";
+    [self.view addSubview:button2Label];
+    
+    NKToggleOverlayButton *button2 = [[NKToggleOverlayButton alloc] init];
+    button2.frame = CGRectMake(20, CGRectGetMaxY(button2Label.frame) + 10, 100, 44);
+    
+    button2.backgroundColor = [UIColor whiteColor];
+    button2.layer.borderColor = redColor.CGColor;
+    button2.layer.borderWidth = 1.0f;
+    button2.layer.cornerRadius = 8.0f;
+    button2.titleLabel.text = @"Tap me";
+    button2.titleLabel.textColor = [UIColor blackColor];
+    button2.overlayOnText = @"Added";
+    button2.overlayOffText = @"Deleted";
+    button2.toggleOnBlock = ^(NKToggleOverlayButton *button) {
+        NSLog(@"Added");
+        button.backgroundColor = redColor;
+        button.titleLabel.textColor = [UIColor whiteColor];
+    };
+    button2.toggleOffBlock = ^(NKToggleOverlayButton *button) {
+        NSLog(@"Deleted");
+        button.backgroundColor = [UIColor whiteColor];
+        button.titleLabel.textColor = [UIColor blackColor];
+    };
+    [button2 addTarget:self action:@selector(didToggleButton2:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.view addSubview:button2];
 }
 
-	
+#pragma mark - Target/action
+- (void)didToggleButton1:(NKToggleOverlayButton *)button
+{
+    NSLog(@"Button 1 toggled %@", button.selected ? @"on" : @"off");
+}
+
+- (void)didToggleButton2:(NKToggleOverlayButton *)button
+{
+    NSLog(@"Button 2 toggled %@", button.selected ? @"on" : @"off");
+}
+
 @end

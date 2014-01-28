@@ -1,7 +1,7 @@
 /*
  This file is part of NKToggleOverlayButton.
  
- Copyright (c) 2012, Neil Kimmett
+ Copyright (c) 2014, Neil Kimmett
  All rights reserved.
  
  Permission is hereby granted, free of charge, to any person
@@ -30,9 +30,8 @@
  *
  */
 
-#if NS_BLOCKS_AVAILABLE
 
-@protocol NKToggleOverlayButtonDelegate;
+#if NS_BLOCKS_AVAILABLE
 
 @class NKToggleOverlayButton;
 
@@ -40,49 +39,64 @@ typedef void (^NKToggleActionBlock)(NKToggleOverlayButton *button);
 
 #import <UIKit/UIKit.h>
 
-#define kNotifyInterestUpdated @"ListingInterestDidUpdate"
+/**
+ NKToggleOverlayButton is a two state button that displays a translucent overlay when it's state is changed.
 
-@interface NKToggleOverlayButton : UIView
+ Behaviour can be attached to the button by assigning action blocks to the toggleOnBlock and toggleOffBlock properties. Alternatively you can use addTarget:action:forControlEvents to add a target/action pair for the control event UIControlEventValueChanged (for when the button state is toggled) or UIControlEventTouchUpInside (for when the button is tapped)
+ */
+@interface NKToggleOverlayButton : UIControl
 
-// Images used to set the on/off images for different control states,
-// analogous to the setImage:forState: method of UIButton
+/**
+ Programmatically toggles the button's on/off state
+ @param animated Toggles whether to show the animated overlay
+ */
+- (void)toggleSelectedAnimated:(BOOL)animated;
+
+/**
+ Sets the the button's on/off state. Use -isSelected (declared in superclass UIControl) to query button's current state. Use -setSelected: (declared in superclass UIControl) to set the button's on/off state without triggering toggle[On|Off]Block to be executed.
+ @param selected If true toggles the button on, if false toggles the button off
+ @param animated Toggles whether to show the animated overlay
+ */
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated;
+
+/**
+ Assign an image to be used for the given state when the button is on
+ @param image The image to be used
+ @param state The control state to assign the given image for
+ */
 - (void)setOnImage:(UIImage *)image forState:(UIControlState)state;
+
+/**
+ Assign an image to be used for the given state when the button is off
+ @param image The image to be used
+ @param state The control state to assign the given image for
+ */
 - (void)setOffImage:(UIImage *)image forState:(UIControlState)state;
 
-// Title label
-@property (nonatomic, retain) UILabel *titleLabel;
+/// A label that occupies the whole bounds of the button
+@property (nonatomic, strong, readonly) UILabel *titleLabel;
 
-// Used to turn the overlay animation on or off (default on)
+/// Whether to display the animated overlay or not
 @property (nonatomic, assign) BOOL showOverlay;
 
-// Used to determine the on/off state of the button (default off)
-@property (nonatomic, assign) BOOL isOn;
-
-// Text that is displayed in the overlay when button is toggled on/off
+/// Text that is displayed in the animated overlay when the button is toggled on
 @property (nonatomic, copy) NSString *overlayOnText;
+
+/// Text that is displayed in the animated overlay when the button is toggled off
 @property (nonatomic, copy) NSString *overlayOffText;
 
-// Image displayed in the overlay when button is toggled on/off
-@property (nonatomic, retain) UIImage *overlayOnImage;
-@property (nonatomic, retain) UIImage *overlayOffImage;
+/// Image that is displayed in the animated overlay when the button is toggled on
+@property (nonatomic, strong) UIImage *overlayOnImage;
 
-// Blocks that are executed when the button is toggled on/off
-//
-// Remember to be careful not to create a retain cycle by capturing
-// self strongly in these blocks; instead use a weak __block reference
-// to self
+/// Image that is displayed in the animated overlay when the button is toggled off
+@property (nonatomic, strong) UIImage *overlayOffImage;
+
+/// Block that is executed when the button is toggled on
 @property (nonatomic, copy) NKToggleActionBlock toggleOnBlock;
+
+/// Block that is executed when the button is toggled off
 @property (nonatomic, copy) NKToggleActionBlock toggleOffBlock;
 
-// Delegate for if you want to kick it old school
-@property (nonatomic, assign) id<NKToggleOverlayButtonDelegate> delegate;
-
-@end
-
-
-@protocol NKToggleOverlayButtonDelegate <NSObject>
-@optional
-- (void)toggleButtonDidToggle:(NKToggleOverlayButton *)button;
 @end
 
 #endif

@@ -1,7 +1,7 @@
 /*
  This file is part of NKToggleOverlayButton.
  
- Copyright (c) 2012, Neil Kimmett
+ Copyright (c) 2014, Neil Kimmett
  All rights reserved.
  
  Permission is hereby granted, free of charge, to any person
