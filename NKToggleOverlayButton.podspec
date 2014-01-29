@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = "NKToggleOverlayButton is a two state button that displays a translucent overlay when it's state is changed."
   s.homepage     = "https://github.com/neilkimmett/NKToggleOverlayButton"
   s.screenshots  = "https://raw.github.com/neilkimmett/NKToggleOverlayButton/master/animation.gif"
-  s.author       = { "Neil Kimmett" => "neilkimmett@gmail.com" }
+  s.author       = { "Neil Kimmett" => "neil@kimmett.me" }
   s.source       = { :git => "https://github.com/neilkimmett/NKToggleOverlayButton.git", :tag => 'v2.0.0' }
   s.platform     = :ios, '5.0'
   s.source_files = 'NKToggleOverlayButton/NKToggleOverlayButton'
