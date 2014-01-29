@@ -57,6 +57,29 @@ button.toggleOffBlock = ^(NKToggleOverlayButton *button) {
 };
 ```
 
+You can query the button's current state using 
+
+``` objective-c
+button.isSelected;
+```
+
+You can update the button's state (without displaying the overlay, or triggering `toggleOnBlock`, `toggleOffBlock` or any target/action pairs to be called) using
+``` objective-c
+button.selected = YES;
+```
+This is useful for setting an initial state of the button.
+
+You can programmatically set the button's state and optionally trigger the animated overlay using
+``` objective-c
+[button setSelected:YES animated:YES];
+```
+
+Finally, you can toggle the button's state (switch between on and off), and optionally display the animated overlay using
+``` objective-c
+[button toggleSelectedAnimated:YES];
+```
+
+
 ## Contact
 
 Find me on Twitter [@neilkimmett](http://www.twitter.com/neilkimmett), or drop me an email at neil at kimmett.me
