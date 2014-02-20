@@ -1,5 +1,7 @@
 ![Animation of button being toggled on/off](https://github.com/neilkimmett/NKToggleOverlayButton/raw/master/animation.gif "Excuse the poor quality gif")
 
+### Update: v2.0 release, [read the blog post about it](http://kimmett.me/2014/02/19/nktoggleoverlaybutton-2.0.html)
+
 ## What is NKToggleOverlayButton?
 
 NKToggleOverlayButton is a two state button that displays a translucent overlay when it's state is changed. The overlay contains a customisable line of text and an image.
@@ -16,7 +18,7 @@ Hopefully everything is self-explanatory, if you need a hand open an issue or co
 ## Installation
 
 #### Using [CocoaPods](http://cocoapods.org/) (preferred method)
-* Add `pod 'NKToggleOverlayButton', '~> 1.0.0'` to your `Podfile`
+* Add `pod 'NKToggleOverlayButton', '~> 2.0.0'` to your `Podfile`
 
 * Run
 ``` bash
