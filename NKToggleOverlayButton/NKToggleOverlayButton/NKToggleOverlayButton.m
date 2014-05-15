@@ -30,12 +30,9 @@
  *
  */
 
-
-#define NK_IS_IOS7_OR_LATER NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1
-
 #import "NKToggleOverlayButton.h"
-#import "UIImage+ImageEffects.h"
-#import "NKArchIndependentRounding.h"
+#import "MSArchIndependentRounding.h"
+#import "NKOverlayView.h"
 
 @interface NKToggleOverlayButton()
 {
@@ -43,8 +40,6 @@
     NSMutableDictionary *_onImagesForStates;
     NSMutableDictionary *_offImagesForStates;
 }
-@property (nonatomic, strong) UIAlertView *alertView;
-- (void)animateOverlayView;
 
 @end
 
@@ -64,17 +59,9 @@
         _offImagesForStates = [[NSMutableDictionary alloc] init];
         
         // Default images for overlay
-        if (NK_IS_IOS7_OR_LATER) {
-            _overlayOnImage = [UIImage imageNamed:@"thin-tick"];
-            _overlayOffImage = [UIImage imageNamed:@"thin-cross"];
-        }
-        else {
-            _overlayOnImage = [UIImage imageNamed:@"tick"];
-            _overlayOffImage = [UIImage imageNamed:@"cross"];
-        }
-        
-        self.accessibilityTraits = UIAccessibilityTraitButton;
-        
+        _overlayOnImage = [UIImage imageNamed:@"thin-tick"];
+        _overlayOffImage = [UIImage imageNamed:@"thin-cross"];
+    
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -102,10 +89,6 @@
     _button.frame = self.bounds;
     self.titleLabel.frame = self.bounds;
     [self bringSubviewToFront:self.titleLabel];
-    
-    _button.accessibilityLabel = self.accessibilityLabel;
-    _button.accessibilityHint = self.accessibilityHint;
-    _button.accessibilityTraits = self.accessibilityTraits;
 }
 
 #pragma mark -
@@ -170,11 +153,9 @@
     NKToggleActionBlock actionBlock;
     if (self.isSelected) {
         actionBlock = self.toggleOnBlock;
-        self.accessibilityTraits = UIAccessibilityTraitButton | UIAccessibilityTraitSelected;
     }
     else {
         actionBlock = self.toggleOffBlock;
-        self.accessibilityTraits = UIAccessibilityTraitButton;
     }
 
     if (actionBlock) {
@@ -207,162 +188,34 @@
 
     self.userInteractionEnabled = NO;
 
-    UIView *overlayView = [self newOverlayView];
+    NKOverlayView *overlayView = [[NKOverlayView alloc] init];
     [self.window addSubview:overlayView];
     
-    UIImageView *iconView = [[UIImageView alloc] initWithFrame:overlayView.bounds];
-    iconView.contentMode = UIViewContentModeCenter;
-    [overlayView addSubview:iconView];
-
-    UILabel *label = [self newLabel];
-    [overlayView addSubview:label];
-    
     if (self.isSelected) {
-        label.text = self.overlayOnText;
-        iconView.image = self.overlayOnImage;
-
-        [self animateOnTransitionWithOverlay:overlayView];
-    }
-    else {
-        label.text = self.overlayOffText;
-        iconView.image = self.overlayOffImage;
-
-        [self animateOffTransitionWithOverlay:overlayView];
-    }
-}
-
-- (void)animateOnTransitionWithOverlay:(UIView *)overlayView
-{
-    [self animateTransitionFromTransform:[self smallTransform]
-                             toTransform:[self largeTransform]
-                             withOverlay:overlayView];
-}
-
-- (void)animateOffTransitionWithOverlay:(UIView *)overlayView
-{
-    [self animateTransitionFromTransform:[self largeTransform]
-                             toTransform:[self smallTransform]
-                             withOverlay:overlayView];
-}
-
-- (void)animateTransitionFromTransform:(CGAffineTransform)fromTransform
-                           toTransform:(CGAffineTransform)toTransform
-                           withOverlay:(UIView *)overlayView
-{
-    overlayView.transform = fromTransform;
-
-    [UIView animateWithDuration:0.3 animations:^{
-        overlayView.alpha = 1.0;
-        overlayView.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished1) {
-        [UIView animateWithDuration:0.3 delay:0.3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            overlayView.transform = toTransform;
-            overlayView.alpha = 0.0;
-        } completion:^(BOOL finished2) {
-            [overlayView removeFromSuperview];
+        overlayView.textLabel.text = self.overlayOnText;
+        overlayView.imageView.image = [self.overlayOnImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [overlayView animateOnTransitionWithCompletion:^{
             self.userInteractionEnabled = YES;
         }];
-    }];
-}
-
-- (CGAffineTransform)smallTransform
-{
-    return CGAffineTransformMakeScale(0.8f, 0.8f);
-}
-
-- (CGAffineTransform)largeTransform
-{
-    return CGAffineTransformMakeScale(1.2f, 1.2f);
-}
-
-#pragma mark - View creation
-
-- (UIView *)newOverlayView
-{
-    CGRect overlayFrame = [self frameForOverlay];
-
-    UIView *overlayView;
-    if (NK_IS_IOS7_OR_LATER) {
-        overlayView = [self newBlurredOverlayViewBackground];
     }
     else {
-        overlayView = [[UIView alloc] initWithFrame:overlayFrame];
-        overlayView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
-        overlayView.layer.cornerRadius = 12.0;
+        overlayView.textLabel.text = self.overlayOffText;
+        overlayView.imageView.image = [self.overlayOffImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [overlayView animateOffTransitionWithCompletion:^{
+            self.userInteractionEnabled = YES;
+        }];
     }
-
-    overlayView.alpha = 0.2;
-    return overlayView;
 }
 
-- (UIView *)newBlurredOverlayViewBackground
+#pragma mark - Accessibility
+- (UIAccessibilityTraits)accessibilityTraits
 {
-    UIGraphicsBeginImageContext(self.window.bounds.size);
-    [self.window drawViewHierarchyInRect:self.window.bounds afterScreenUpdates:YES];
-    UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    snapshotImage = [snapshotImage applyExtraLightEffect];
-    UIImageView *snapshotView = [[UIImageView alloc] initWithImage:snapshotImage];
-    [self.window addSubview:snapshotView];
-
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.fillColor = [UIColor whiteColor].CGColor;
-    maskLayer.frame = self.window.bounds;
-    CGRect maskRect = [self frameForOverlay];
-    maskLayer.path = [UIBezierPath bezierPathWithRoundedRect:maskRect cornerRadius:8].CGPath;
-    snapshotView.layer.mask = maskLayer;
-    return snapshotView;
-}
-
-- (UILabel *)newLabel
-{
-    CGRect labelFrame = [self frameForTextLabel];
-
-    UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
-    
-    label.textColor = NK_IS_IOS7_OR_LATER ? [UIColor blackColor] : [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    label.adjustsFontSizeToFitWidth = YES;
-
-    NSUInteger fontSize = 14;
-    NSUInteger minFontSize = 8;
-    label.font = [UIFont boldSystemFontOfSize:fontSize];
-    if ([label respondsToSelector:@selector(setMinimumScaleFactor:)]) {
-        float minScaleFactor = (float)minFontSize/(float)fontSize;
-        [label setMinimumScaleFactor:minScaleFactor];
+    if (self.isSelected) {
+        return UIAccessibilityTraitButton | UIAccessibilityTraitSelected;
     }
     else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated"
-        [label setMinimumFontSize:minFontSize];
-#pragma clang diagnostic pop
+        return UIAccessibilityTraitButton;
     }
-    return label;
 }
 
-
-#pragma mark - Layout
-
-static const CGFloat kOverlaySize = 135;
-- (CGRect)frameForOverlay
-{
-    CGFloat overlayXOrigin = nk_floor((self.window.bounds.size.width- kOverlaySize)/2.0f);
-    CGFloat overlayYOrigin = nk_floor((self.window.bounds.size.height- kOverlaySize)/2.0f);
-    CGRect overlayFrame = CGRectMake(overlayXOrigin, overlayYOrigin, kOverlaySize, kOverlaySize);
-    return overlayFrame;
-}
-
-- (CGRect)frameForTextLabel
-{
-    CGFloat labelYOrigin = nk_floor(kOverlaySize - kOverlaySize /5.0f);
-    CGFloat labelPadding = 5;
-    CGRect labelFrame = CGRectMake(labelPadding, labelYOrigin, kOverlaySize-2* labelPadding, 15);
-    // On iOS7+ our overlay is actually the size of the whole window, and is masked out
-    if (NK_IS_IOS7_OR_LATER) {
-        labelFrame.origin.x += (self.window.frame.size.width - kOverlaySize) / 2.0f;
-        labelFrame.origin.y += (self.window.frame.size.height - kOverlaySize) / 2.0f;
-    }
-    return labelFrame;
-}
 @end
