@@ -20,7 +20,7 @@ Hopefully everything is self-explanatory, if you need a hand open an issue or co
 
 ## Installation
 
-#### Using [CocoaPods](http://cocoapods.org/) (preferred method)
+#### Using [CocoaPods](http://cocoapods.org/)
 * Add `pod 'NKToggleOverlayButton', '~> 2.1'` to your `Podfile`
 
 * Run
