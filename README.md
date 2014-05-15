@@ -1,7 +1,5 @@
 ![Animation of button being toggled on/off](https://github.com/neilkimmett/NKToggleOverlayButton/raw/master/animation.gif "Excuse the poor quality gif")
 
-### Update: v2.0 release, [read the blog post about it](http://kimmett.me/2014/02/19/nktoggleoverlaybutton-2.0.html)
-
 ## What is NKToggleOverlayButton?
 
 NKToggleOverlayButton is a two state button that displays a translucent overlay when it's state is changed. The overlay contains a customisable line of text and an image.
@@ -12,13 +10,18 @@ The appearance of the button is changed using the
 `setOnImage:forState:` and `setOffImage:forState:` methods, which are analogous to 
 the `setImage:forState:` method of UIButton, or by using the `titleLabel` property.
 
+The overlay can be either dark (default) or light. You can select a style thusly
+``` objective-c
+button.style = NKOverlayViewStyle[Dark|Light]
+```
+
 Hopefully everything is self-explanatory, if you need a hand open an issue or contact me (details found below).
 
 
 ## Installation
 
 #### Using [CocoaPods](http://cocoapods.org/) (preferred method)
-* Add `pod 'NKToggleOverlayButton', '~> 2.0.0'` to your `Podfile`
+* Add `pod 'NKToggleOverlayButton', '~> 2.1'` to your `Podfile`
 
 * Run
 ``` bash
@@ -26,15 +29,10 @@ $ pod install
 ```
 to add the required files to your workspace.
 
-#### Manually
-* Drag the `NKToggleOverlayButton` folder into your project
-* `#import "NKToggleOverlayButton.h"`
-
 ## How to use
 
 Example usage can be found in the demo project. If you're using CocoaPods 0.29 (or more recent) you can `pod try NKToggleOverlayButton` to check out the project temporarily and have a play.
 
-N.B. `NKToggleOverlayButton` uses ARC. If your project does not use ARC add the `-fobjc-arc` compiler flag to all the files from this project (in your project settings click "Build Phases" at the top, then expand the "Compile Sources" section)
 
 ``` objective-c
 
@@ -81,6 +79,8 @@ Finally, you can toggle the button's state (switch between on and off), and opti
 [button toggleSelectedAnimated:YES];
 ```
 
+## ARC
+`NKToggleOverlayButton` uses ARC. If your project does not use ARC add the `-fobjc-arc` compiler flag to all the files from this project (in your project settings click "Build Phases" at the top, then expand the "Compile Sources" section)
 
 ## Contact
 
