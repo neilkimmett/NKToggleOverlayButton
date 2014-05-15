@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'NKToggleOverlayButton/NKToggleOverlayButton'
   s.requires_arc = true
 
-  s.dependency   = 'FXBlurView', '~> 1.6'
+  s.dependency 'FXBlurView', '~> 1.6'
 end
