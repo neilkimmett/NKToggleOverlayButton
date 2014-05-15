@@ -102,7 +102,7 @@
     button2.layer.borderColor = redColor.CGColor;
     button2.layer.borderWidth = 1.0f;
     button2.layer.cornerRadius = 8.0f;
-    button2.titleLabel.text = @"Tap me";
+    button2.titleLabel.text = @"Dark style";
     button2.titleLabel.textColor = [UIColor blackColor];
     button2.overlayOnText = @"Added";
     button2.overlayOffText = @"Deleted";
@@ -117,8 +117,34 @@
         button.titleLabel.textColor = [UIColor blackColor];
     };
     [button2 addTarget:self action:@selector(didToggleButton2:) forControlEvents:UIControlEventValueChanged];
-    
+
     [self.view addSubview:button2];
+
+    NKToggleOverlayButton *button3 = [[NKToggleOverlayButton alloc] init];
+    button3.frame = CGRectMake(CGRectGetMaxX(button2.frame) + 40, CGRectGetMaxY(button2Label.frame) + 10, 100, 44);
+    
+    button3.backgroundColor = [UIColor whiteColor];
+    button3.layer.borderColor = redColor.CGColor;
+    button3.layer.borderWidth = 1.0f;
+    button3.layer.cornerRadius = 8.0f;
+    button3.style = NKOverlayViewStyleLight;
+    button3.titleLabel.text = @"Light style";
+    button3.titleLabel.textColor = [UIColor blackColor];
+    button3.overlayOnText = @"Added";
+    button3.overlayOffText = @"Deleted";
+    button3.toggleOnBlock = ^(NKToggleOverlayButton *button) {
+        NSLog(@"Added");
+        button.backgroundColor = redColor;
+        button.titleLabel.textColor = [UIColor whiteColor];
+    };
+    button3.toggleOffBlock = ^(NKToggleOverlayButton *button) {
+        NSLog(@"Deleted");
+        button.backgroundColor = [UIColor whiteColor];
+        button.titleLabel.textColor = [UIColor blackColor];
+    };
+    [button3 addTarget:self action:@selector(didToggleButton2:) forControlEvents:UIControlEventValueChanged];
+
+    [self.view addSubview:button3];
 }
 
 #pragma mark - Target/action

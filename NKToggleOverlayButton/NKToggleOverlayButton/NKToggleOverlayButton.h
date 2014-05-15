@@ -30,6 +30,7 @@
  *
  */
 
+#import "NKOverlayView.h"
 
 #if NS_BLOCKS_AVAILABLE
 
@@ -75,6 +76,9 @@ typedef void (^NKToggleActionBlock)(NKToggleOverlayButton *button);
 
 /// A label that occupies the whole bounds of the button
 @property (nonatomic, strong, readonly) UILabel *titleLabel;
+
+/// The style of the overlay, light or dark
+@property (nonatomic, assign) NKOverlayViewStyle style;
 
 /// Whether to display the animated overlay or not
 @property (nonatomic, assign) BOOL showOverlay;

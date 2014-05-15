@@ -7,8 +7,10 @@ Pod::Spec.new do |s|
   s.screenshots  = "https://raw.github.com/neilkimmett/NKToggleOverlayButton/master/animation.gif"
   s.author       = { "Neil Kimmett" => "neil@kimmett.me" }
   s.source       = { :git => "https://github.com/neilkimmett/NKToggleOverlayButton.git", :tag => 'v2.0.0' }
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '7.0'
   s.source_files = 'NKToggleOverlayButton/NKToggleOverlayButton'
   s.public_header_files = 'NKToggleOverlayButton/NKToggleOverlayButton'
   s.requires_arc = true
+
+  s.dependency   = 'FXBlurView', '~> 1.6'
 end

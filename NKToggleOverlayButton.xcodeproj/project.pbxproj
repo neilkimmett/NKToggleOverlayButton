@@ -16,6 +16,8 @@
 		283659CA15B17D1900ECD392 /* NKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659C915B17D1900ECD392 /* NKViewController.m */; };
 		283659D915B17D5700ECD392 /* NKToggleOverlayButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 283659D815B17D5700ECD392 /* NKToggleOverlayButton.m */; };
 		285743C117300D430028CD75 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 285743C017300D430028CD75 /* Default-568h@2x.png */; };
+		2862AEDE1924DDAB00CC2176 /* NKOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2862AEDD1924DDAB00CC2176 /* NKOverlayView.m */; };
+		2862AEE21924E01900CC2176 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2862AEE11924E01900CC2176 /* FXBlurView.m */; };
 		2871582615C4376B00A1477D /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871582215C4376B00A1477D /* cross.png */; };
 		2871582715C4376B00A1477D /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871582315C4376B00A1477D /* cross@2x.png */; };
 		2871582815C4376B00A1477D /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871582415C4376B00A1477D /* tick.png */; };
@@ -28,10 +30,8 @@
 		2871583815C4378000A1477D /* on-press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871583015C4378000A1477D /* on-press@2x.png */; };
 		2871583915C4378000A1477D /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871583115C4378000A1477D /* on.png */; };
 		2871583A15C4378000A1477D /* on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2871583215C4378000A1477D /* on@2x.png */; };
-		28D4D189189811AD008B0621 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4D188189811AD008B0621 /* UIImage+ImageEffects.m */; };
 		28D4D18A189811E4008B0621 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2871583B15C43FD700A1477D /* QuartzCore.framework */; };
 		28D4D18C189811FF008B0621 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D4D18B189811FF008B0621 /* Accelerate.framework */; };
-		28D4D18F189812AD008B0621 /* NKArchIndependentRounding.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D4D18E189812AD008B0621 /* NKArchIndependentRounding.m */; };
 		28D4D19418981561008B0621 /* thin-cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D4D19018981561008B0621 /* thin-cross.png */; };
 		28D4D19518981561008B0621 /* thin-cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D4D19118981561008B0621 /* thin-cross@2x.png */; };
 		28D4D19618981561008B0621 /* thin-tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 28D4D19218981561008B0621 /* thin-tick.png */; };
@@ -54,6 +54,10 @@
 		283659D715B17D5700ECD392 /* NKToggleOverlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKToggleOverlayButton.h; sourceTree = "<group>"; };
 		283659D815B17D5700ECD392 /* NKToggleOverlayButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKToggleOverlayButton.m; sourceTree = "<group>"; };
 		285743C017300D430028CD75 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2862AEDC1924DDAB00CC2176 /* NKOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKOverlayView.h; sourceTree = "<group>"; };
+		2862AEDD1924DDAB00CC2176 /* NKOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKOverlayView.m; sourceTree = "<group>"; };
+		2862AEE01924E01900CC2176 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		2862AEE11924E01900CC2176 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		2871582215C4376B00A1477D /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = Images/cross.png; sourceTree = "<group>"; };
 		2871582315C4376B00A1477D /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cross@2x.png"; path = "Images/cross@2x.png"; sourceTree = "<group>"; };
 		2871582415C4376B00A1477D /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tick.png; path = Images/tick.png; sourceTree = "<group>"; };
@@ -67,11 +71,7 @@
 		2871583115C4378000A1477D /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = on.png; path = Images/on.png; sourceTree = "<group>"; };
 		2871583215C4378000A1477D /* on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "on@2x.png"; path = "Images/on@2x.png"; sourceTree = "<group>"; };
 		2871583B15C43FD700A1477D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		28D4D187189811AD008B0621 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		28D4D188189811AD008B0621 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		28D4D18B189811FF008B0621 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		28D4D18D189812AD008B0621 /* NKArchIndependentRounding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NKArchIndependentRounding.h; sourceTree = "<group>"; };
-		28D4D18E189812AD008B0621 /* NKArchIndependentRounding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NKArchIndependentRounding.m; sourceTree = "<group>"; };
 		28D4D19018981561008B0621 /* thin-cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thin-cross.png"; path = "Images/thin-cross.png"; sourceTree = "<group>"; };
 		28D4D19118981561008B0621 /* thin-cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thin-cross@2x.png"; path = "Images/thin-cross@2x.png"; sourceTree = "<group>"; };
 		28D4D19218981561008B0621 /* thin-tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thin-tick.png"; path = "Images/thin-tick.png"; sourceTree = "<group>"; };
@@ -126,6 +126,7 @@
 		283659BC15B17D1900ECD392 /* NKToggleOverlayButton */ = {
 			isa = PBXGroup;
 			children = (
+				2862AEDF1924E01000CC2176 /* Additional */,
 				283659C515B17D1900ECD392 /* NKAppDelegate.h */,
 				283659C615B17D1900ECD392 /* NKAppDelegate.m */,
 				283659D615B17D5700ECD392 /* NKToggleOverlayButton */,
@@ -154,12 +155,19 @@
 				2871581415C3147900A1477D /* Images */,
 				283659D715B17D5700ECD392 /* NKToggleOverlayButton.h */,
 				283659D815B17D5700ECD392 /* NKToggleOverlayButton.m */,
-				28D4D18D189812AD008B0621 /* NKArchIndependentRounding.h */,
-				28D4D18E189812AD008B0621 /* NKArchIndependentRounding.m */,
-				28D4D187189811AD008B0621 /* UIImage+ImageEffects.h */,
-				28D4D188189811AD008B0621 /* UIImage+ImageEffects.m */,
+				2862AEDC1924DDAB00CC2176 /* NKOverlayView.h */,
+				2862AEDD1924DDAB00CC2176 /* NKOverlayView.m */,
 			);
 			path = NKToggleOverlayButton;
+			sourceTree = "<group>";
+		};
+		2862AEDF1924E01000CC2176 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				2862AEE01924E01900CC2176 /* FXBlurView.h */,
+				2862AEE11924E01900CC2176 /* FXBlurView.m */,
+			);
+			name = Additional;
 			sourceTree = "<group>";
 		};
 		2871581415C3147900A1477D /* Images */ = {
@@ -274,10 +282,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				283659C315B17D1900ECD392 /* main.m in Sources */,
-				28D4D18F189812AD008B0621 /* NKArchIndependentRounding.m in Sources */,
-				28D4D189189811AD008B0621 /* UIImage+ImageEffects.m in Sources */,
 				283659C715B17D1900ECD392 /* NKAppDelegate.m in Sources */,
 				283659CA15B17D1900ECD392 /* NKViewController.m in Sources */,
+				2862AEE21924E01900CC2176 /* FXBlurView.m in Sources */,
+				2862AEDE1924DDAB00CC2176 /* NKOverlayView.m in Sources */,
 				283659D915B17D5700ECD392 /* NKToggleOverlayButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

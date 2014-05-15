@@ -7,8 +7,6 @@
 //
 
 #import "NKOverlayView.h"
-#import "UIImage+ImageEffects.h"
-#import "UIDevice+MSPlatformString.h"
 #import "FXBlurView.h"
 
 @interface NKOverlayView ()
@@ -177,7 +175,7 @@ static const CGFloat kLabelHeight = 40;
 
 - (CGRect)frameForTextLabel
 {
-    CGFloat labelYOrigin = ms_floor(kOverlaySize * 0.7f);
+    CGFloat labelYOrigin = kOverlaySize * 0.7f;
     CGFloat labelPadding = 5;
     CGRect labelFrame = CGRectMake(labelPadding, labelYOrigin, kOverlaySize-2*labelPadding, kLabelHeight);
 

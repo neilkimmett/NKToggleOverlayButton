@@ -31,7 +31,6 @@
  */
 
 #import "NKToggleOverlayButton.h"
-#import "MSArchIndependentRounding.h"
 #import "NKOverlayView.h"
 
 @interface NKToggleOverlayButton()
@@ -189,6 +188,7 @@
     self.userInteractionEnabled = NO;
 
     NKOverlayView *overlayView = [[NKOverlayView alloc] init];
+    overlayView.style = self.style;
     [self.window addSubview:overlayView];
     
     if (self.isSelected) {
