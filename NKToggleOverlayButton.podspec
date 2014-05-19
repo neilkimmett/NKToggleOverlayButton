@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/neilkimmett/NKToggleOverlayButton"
   s.screenshots  = "https://raw.github.com/neilkimmett/NKToggleOverlayButton/master/animation.gif"
   s.author       = { "Neil Kimmett" => "neil@kimmett.me" }
-  s.source       = { :git => "https://github.com/neilkimmett/NKToggleOverlayButton.git", :tag => 'v2.1.0' }
+  s.source       = { :git => "https://github.com/neilkimmett/NKToggleOverlayButton.git", :tag => 'v2.1.1' }
   s.platform     = :ios, '7.0'
   s.source_files = 'NKToggleOverlayButton/NKToggleOverlayButton'
   s.resources    = 'NKToggleOverlayButton/NKToggleOverlayButton/Images/*.png'
