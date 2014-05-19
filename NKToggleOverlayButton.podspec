@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NKToggleOverlayButton"
-  s.version      = "2.1.0"
+  s.version      = "2.1.1"
   s.license      = 'MIT'
   s.summary      = "NKToggleOverlayButton is a two state button that displays a translucent overlay when it's state is changed."
   s.homepage     = "https://github.com/neilkimmett/NKToggleOverlayButton"
