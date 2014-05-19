@@ -135,10 +135,10 @@
 - (UIImage *)overlayImageForOn:(BOOL)isOn
 {
     if (isOn) {
-        return [[UIImage imageNamed:@"thin-tick"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        return [[UIImage imageNamed:@"nk-thin-tick"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     else {
-        return [[UIImage imageNamed:@"thin-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        return [[UIImage imageNamed:@"nk-thin-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
 }
 
