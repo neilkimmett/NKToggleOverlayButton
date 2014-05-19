@@ -9,6 +9,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/neilkimmett/NKToggleOverlayButton.git", :tag => 'v2.1.0' }
   s.platform     = :ios, '7.0'
   s.source_files = 'NKToggleOverlayButton/NKToggleOverlayButton'
+  s.resources    = 'NKToggleOverlayButton/NKToggleOverlayButton/Images/*.png'
   s.public_header_files = 'NKToggleOverlayButton/NKToggleOverlayButton'
   s.requires_arc = true
 
