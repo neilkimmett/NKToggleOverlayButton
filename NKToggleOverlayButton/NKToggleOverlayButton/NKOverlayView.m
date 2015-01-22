@@ -9,6 +9,8 @@
 #import "NKOverlayView.h"
 #import "FXBlurView.h"
 
+#define IS_OS_7_OR_EARLIER    ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0)
+
 @interface NKOverlayView ()
 @property (nonatomic, strong) FXBlurView *blurView;
 @property (nonatomic, strong) UIView *blurTintView;
@@ -197,22 +199,24 @@ static const CGFloat kLabelHeight = 40;
 #pragma mark - Rotation
 - (CGFloat)angleOfOrientation:(UIInterfaceOrientation)orientation
 {
-    CGFloat angle;
-    
-    switch (orientation)
-    {
-        case UIInterfaceOrientationPortraitUpsideDown:
-            angle = (CGFloat)M_PI;
-            break;
-        case UIInterfaceOrientationLandscapeLeft:
-            angle = (CGFloat)-M_PI_2;
-            break;
-        case UIInterfaceOrientationLandscapeRight:
-            angle = (CGFloat)M_PI_2;
-            break;
-        default:
-            angle = 0.0f;
-            break;
+    CGFloat angle = 0;
+
+    if (IS_OS_7_OR_EARLIER) {
+        switch (orientation)
+        {
+            case UIInterfaceOrientationPortraitUpsideDown:
+                angle = (CGFloat)M_PI;
+                break;
+            case UIInterfaceOrientationLandscapeLeft:
+                angle = (CGFloat)-M_PI_2;
+                break;
+            case UIInterfaceOrientationLandscapeRight:
+                angle = (CGFloat)M_PI_2;
+                break;
+            default:
+                angle = 0.0f;
+                break;
+        }
     }
     
     return angle;
